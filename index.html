@@ -5,9 +5,81 @@ h1{font-size:clamp(24px,4vw,35px);line-height:1.15;margin:0 0 5px}.desc{color:va
 .card{background:var(--card);border:1px solid var(--line);border-radius:20px;box-shadow:0 5px 25px #1222420b;padding:clamp(18px,4vw,32px)}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:22px}.tabs{display:flex;gap:5px;background:#e8ecf3;padding:5px;border-radius:12px;flex-wrap:wrap}.tabs button{border:0;padding:10px 13px;border-radius:9px;background:transparent;color:#596272;cursor:pointer;font-weight:700}.tabs button.active{background:#fff;color:#203565;box-shadow:0 1px 7px #25334b20}
 button{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:11px;padding:10px 16px;background:#fff;color:var(--text);font-weight:650}button:hover{filter:brightness(.975)}button:focus-visible,select:focus-visible{outline:3px solid #a5befe;outline-offset:2px}.primary{background:var(--brand);border-color:var(--brand);color:#fff}.positive{background:#eefaf2;color:#17683c;border-color:#cdebd8}.needs{background:#fff4ea;color:#95501a;border-color:#ffe2bb}.outline{color:#244d99;border-color:#d4dced}.meta{display:flex;align-items:center;justify-content:space-between;gap:8px;color:var(--muted);font-size:13px;font-weight:650}.meter{background:#e5e9f3;height:7px;border-radius:50px;margin:8px 0 22px;overflow:hidden}.meter>div{background:#3367db;height:100%;width:0;transition:width .2s}.qtitle{font-size:clamp(21px,3.4vw,28px);line-height:1.3;margin:7px 0 7px}.small{color:var(--muted);font-size:13px}.prompt{padding:18px;border-radius:13px;background:var(--soft);border-left:4px solid #6187e8;margin:18px 0}.answer{margin:20px 0 8px;padding:20px 22px;border:1px solid var(--line);border-radius:13px}.answer p:first-child{margin-top:0}.answer p:last-child{margin-bottom:0}.answer p{margin:12px 0}.formula{font-family:Cambria,Georgia,serif;font-size:19px;text-align:center;overflow-x:auto;padding:12px 10px;background:#f5f7fc;border-radius:10px;margin:14px 0}.proof{margin-top:20px;padding-top:20px;border-top:1px solid var(--line)}.proof h3{margin-top:0}.actions{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 0}.footer{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:20px;margin-top:22px}.controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}.sel{width:min(100%,590px);padding:10px 12px;background:#fff;border:1px solid var(--line);border-radius:10px;font:inherit}.status{font-size:13px;color:var(--muted)}.list{max-height:600px;overflow:auto;display:grid;gap:8px;margin:15px 0}.entry{padding:13px;text-align:left;width:100%;background:#fff;font-size:14px}.entry.current{border-color:#3367db;background:#f2f5ff}.entry .state{float:right;font-size:12px;color:var(--muted)}.hidden{display:none!important}.footnote{font-size:12px;color:#667085;margin-top:20px}.hint{font-weight:650;color:#235dba}.completion{text-align:center;padding:30px 12px 16px}.completion h2{font-size:clamp(22px,3vw,32px);margin:0 0 10px}.completion .stats{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:22px 0}.completion .metric{background:#f1f4fc;border-radius:12px;padding:14px 20px;min-width:120px}.completion .metric b{font-size:26px;display:block}.completion .cta{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px 0}.completion p{color:var(--muted)}.reviewtools{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px}@media(max-width:620px){main{margin:16px auto}.toolbar{align-items:stretch}.tabs{width:100%}.tabs button{flex:1}.footer button{padding:10px}.answer{padding:14px}.qtitle{font-size:21px}}
 @media print{body{background:white}main{max-width:none}.card{box-shadow:none;border:none}.toolbar,.actions,.footer,.sel,.tabs,.meta,.meter,.reviewtools{display:none!important}.answer{display:block!important;border:none;padding:0}.proof{display:block!important}.card{padding:0}}
-</style></head><body><main><header class="top"><div><h1>Алгебра та геометрія</h1><p class="desc">Усний іспит · 1 семестр · 30 питань (№ 1–32, без № 11 і № 16)</p></div><span class="tag">За Булдигіним і програмою КНУ</span></header><section class="card"><div class="toolbar"><div class="tabs" id="tabs"><button type="button" class="active" data-mode="oral" onclick="setMode('oral')">Усний тест</button><button type="button" data-mode="review" onclick="setMode('review')">Вся теорія</button><button type="button" data-mode="proof" onclick="setMode('proof')">Доведення</button><button type="button" data-mode="repeat" onclick="setMode('repeat')">Доучити <span id="repeatCount">(30)</span></button></div><div class="status">✓ Знаю: <b id="known">0</b> &nbsp; ↻ На повтор: <b id="repeat">30</b></div></div><div id="studyArea"><div class="meta"><span>Питання</span><span id="position">1 / 30</span></div><div class="meter"><div id="progress"></div></div><select id="numselect" class="sel" onchange="choose(this.value)" aria-label="Оберіть питання"></select><div style="margin-top:23px"><div class="small hint" id="qid">ПИТАННЯ № 1</div><h2 class="qtitle" id="title"></h2><div class="small" id="source"></div></div><div class="prompt" id="prompt">Дай відповідь уголос. Згадай означення, усі властивості й формули. Лише після цього відкрий еталон нижче.</div><div class="actions"><button class="primary" id="reveal" onclick="reveal()">Показати еталонну відповідь</button></div><div class="answer hidden" id="answer"></div><div class="answer proof hidden" id="proof"><h3>Повне доведення</h3><div id="proofText"></div></div><div class="actions hidden" id="rating"><button class="positive" onclick="mark('known')">✓ Знаю</button><button class="needs" onclick="mark('repeat')">↻ Повторити</button></div><div class="footer"><button onclick="navigate(-1)">← Назад</button><div class="controls"><button id="restart" class="outline" onclick="reset()">Скинути прогрес</button><button class="primary" onclick="navigate(1)">Далі →</button></div></div></div><div id="completed" class="completion hidden" aria-live="polite"></div></section><div style="margin:14px 0 0;text-align:right"><button class="outline" onclick="reset()">↺ Очистити весь прогрес</button></div><p class="footnote">Відповіді — навчальний конспект із математичними формулами та посиланнями на розділи Булдигіна; це не повна дослівна копія підручника. Позначки й поточний режим зберігаються у цьому браузері навіть після перезавантаження. Після завершення тесту можна повторювати лише невивчені питання. Файл працює офлайн. На клавіатурі: ← → для перемикання, пробіл — відкрити відповідь.</p></main><script>
+
+.quiz-options { display:grid; gap:10px; margin:22px 0 0; }
+.quiz-option { display:flex; gap:12px; align-items:center; width:100%; text-align:left; }
+.quiz-option:disabled { cursor:default; }
+.quiz-option:disabled:hover { filter:none; }
+.quiz-letter { display:grid; place-items:center; flex:0 0 30px; height:30px; border-radius:8px; background:#e8edf7; color:#203565; }
+.quiz-option.positive .quiz-letter { background:#d9f1e1; color:inherit; }
+.quiz-option.needs .quiz-letter { background:#ffe9d2; color:inherit; }
+.quiz-option-text { min-width:0; overflow-wrap:anywhere; }
+.quiz-option-result { display:block; font-size:12px; }
+.quiz-feedback { margin-top:18px; padding:14px 16px; border:1px solid; border-radius:11px; }
+.quiz-feedback.positive { border-color:#cdebd8; }
+.quiz-feedback.needs { border-color:#ffe2bb; }
+.quiz-feedback p { margin:4px 0 0; }
+.quiz-footer { justify-content:flex-end; flex-wrap:wrap; }
+@media print { .quiz-options, .quiz-feedback { break-inside:avoid; } }
+.quiz-footer:not(:has(button:not(.hidden))) { display:none; }
+</style></head><body><main><header class="top"><div><h1>Алгебра та геометрія</h1><p class="desc">Усний іспит · 1 семестр · 30 питань (№ 1–32, без № 11 і № 16)</p></div><span class="tag">За Булдигіним і програмою КНУ</span></header><section class="card"><div class="toolbar"><div class="tabs" id="tabs"><button type="button" class="active" data-mode="oral" onclick="setMode('oral')">Усний тест</button><button type="button" data-mode="quiz" onclick="setMode('quiz')">Тести</button><button type="button" data-mode="review" onclick="setMode('review')">Вся теорія</button><button type="button" data-mode="proof" onclick="setMode('proof')">Доведення</button><button type="button" data-mode="repeat" onclick="setMode('repeat')">Доучити <span id="repeatCount">(30)</span></button></div><div class="status" id="studyStatus">✓ Знаю: <b id="known">0</b> &nbsp; ↻ На повтор: <b id="repeat">30</b></div></div><div id="studyArea"><div class="meta"><span>Питання</span><span id="position">1 / 30</span></div><div class="meter"><div id="progress"></div></div><select id="numselect" class="sel" onchange="choose(this.value)" aria-label="Оберіть питання"></select><div style="margin-top:23px"><div class="small hint" id="qid">ПИТАННЯ № 1</div><h2 class="qtitle" id="title"></h2><div class="small" id="source"></div></div><div class="prompt" id="prompt">Дай відповідь уголос. Згадай означення, усі властивості й формули. Лише після цього відкрий еталон нижче.</div><div class="actions"><button class="primary" id="reveal" onclick="reveal()">Показати еталонну відповідь</button></div><div class="answer hidden" id="answer"></div><div class="answer proof hidden" id="proof"><h3>Повне доведення</h3><div id="proofText"></div></div><div class="actions hidden" id="rating"><button class="positive" onclick="mark('known')">✓ Знаю</button><button class="needs" onclick="mark('repeat')">↻ Повторити</button></div><div class="footer"><button onclick="navigate(-1)">← Назад</button><div class="controls"><button id="restart" class="outline" onclick="reset()">Скинути прогрес</button><button class="primary" onclick="navigate(1)">Далі →</button></div></div></div><div id="completed" class="completion hidden" aria-live="polite"></div>
+<div id="quizArea" class="hidden">
+  <div id="quizRound">
+    <div class="meta"><span id="quizTopic"></span><span id="quizPosition"></span></div>
+    <div class="meter" aria-hidden="true"><div id="quizProgress"></div></div>
+    <h2 class="qtitle" id="quizQuestion" tabindex="-1"></h2>
+    <div class="quiz-options" id="quizOptions" role="group" aria-labelledby="quizQuestion"></div>
+    <div id="quizFeedback" role="status" aria-atomic="true"></div>
+    <div class="footer quiz-footer">
+      <button type="button" class="outline hidden" id="quizRestart" onclick="restartQuiz()">Почати спочатку</button>
+      <button type="button" class="primary hidden" id="quizNext" onclick="nextQuizQuestion()">Далі →</button>
+    </div>
+  </div>
+  <div class="completion hidden" id="quizSummary">
+    <h2 id="quizSummaryTitle" tabindex="-1">Тест завершено</h2>
+    <div class="stats">
+      <div class="metric"><b id="quizCorrect"></b><span>Правильні відповіді</span></div>
+      <div class="metric"><b id="quizIncorrect"></b><span>Помилки</span></div>
+    </div>
+    <div class="cta"><button type="button" class="primary" onclick="restartQuiz()">Пройти ще раз</button></div>
+  </div>
+</div>
+</section><div id="studyReset" style="margin:14px 0 0;text-align:right"><button class="outline" onclick="reset()">↺ Очистити весь прогрес</button></div><p class="footnote">Відповіді — навчальний конспект із математичними формулами та посиланнями на розділи Булдигіна; це не повна дослівна копія підручника. Позначки й поточний режим зберігаються у цьому браузері навіть після перезавантаження. Після завершення усного тесту можна повторювати лише невивчені питання. Файл працює офлайн. На клавіатурі: ← → для перемикання, пробіл — відкрити відповідь.</p></main><script>
 const ITEMS=[{"n":1,"title":"Алгебра векторів, дії над векторами","source":"Булдигін: § 7.1–7.2, с. 57–62","answer":"<p><b>Означення 7.1.</b> Вектором у геометрії (геометричним вектором) називають напрямлений відрізок. Початок і кінець позначають A та B, вектор — AB.</p>\n<p><b>Означення 7.2–7.4.</b> Колінеарні вектори лежать на одній прямій або на паралельних прямих; компланарні — в одній чи паралельних площинах. Рівні вектори колінеарні, однаково напрямлені і мають рівні довжини.</p>\n<p><b>Лінійні дії:</b> додавання та множення на число. Суму визначають правилом трикутника. Для λa маємо |λa|=|λ|·|a|; за λ&gt;0 напрям зберігається, за λ&lt;0 змінюється на протилежний.</p>\n<p><b>Твердження 7.1:</b> a+b=b+a; (a+b)+c=a+(b+c); a+0=a; a+(−a)=0; λ(a+b)=λa+λb; (λ+μ)a=λa+μa; λ(μa)=(λμ)a; 1a=a.</p>\n<p><b>Твердження 7.2 (критерій колінеарності):</b> для a≠0 вектори a і b колінеарні тоді й лише тоді, коли b=λa для деякого числа λ.</p>","proof":""},{"n":2,"title":"Поняття базису, теорема про базис","source":"Булдигін: § 7.5, с. 64–65; § 13.6","answer":"<p><b>Означення 7.9.</b> Базисом векторного простору називають лінійно незалежну систему з найбільшою можливою кількістю векторів. Кількість векторів базису — вимірність простору.</p>\n<p><b>Теорема 7.5.</b> На прямій базис — будь-який ненульовий вектор; на площині — будь-яка пара неколінеарних векторів; у тривимірному просторі — будь-яка трійка некомпланарних векторів. Кожен вектор має <b>єдиний розклад</b> за відповідним базисом.</p>\n<div class=\"formula\">x = x₁e₁ + x₂e₂ + x₃e₃</div>\n<p><b>Єдиність розкладу:</b> із двох розкладів x=Σαᵢeᵢ=Σβᵢeᵢ після віднімання дістаємо Σ(αᵢ−βᵢ)eᵢ=0. За незалежністю базисних векторів усі αᵢ−βᵢ=0, тобто αᵢ=βᵢ.</p>","proof":""},{"n":3,"title":"Лінійна залежність і незалежність векторів у просторі","source":"Булдигін: § 7.3–7.4, с. 62–64","answer":"<p><b>Означення 7.7.</b> Лінійною комбінацією a₁,…,aₘ називають Σαᵢaᵢ.</p>\n<p><b>Означення 7.8.</b> Система лінійно незалежна, якщо із Σαᵢaᵢ=0 випливає α₁=…=αₘ=0. Якщо є нульова лінійна комбінація з не всіма нульовими коефіцієнтами — система залежна.</p>\n<p><b>Теорема 7.3.</b> Вектори лінійно залежні тоді й лише тоді, коли хоча б один виражається через решту. Доведення: з нетривіальної рівності Σαᵢaᵢ=0 вибираємо αⱼ≠0 та виражаємо aⱼ. Зворотно: вираження aⱼ через інші дає нетривіальну нульову комбінацію.</p>\n<p><b>Наслідки.</b> Один вектор залежний ⇔ нульовий; два залежні ⇔ колінеарні; три залежні ⇔ компланарні. У просторі будь-які чотири вектори залежні.</p>","proof":""},{"n":4,"title":"Ділення відрізка в даному відношенні","source":"Аналітична геометрія: координатний метод","answer":"<p>Нехай A(x₁,y₁,z₁), B(x₂,y₂,z₂), M ділить <b>внутрішньо</b> AB у відношенні AM:MB=m:n, де m,n&gt;0.</p>\n<p>Із n·AM=m·MB маємо n(x−x₁)=m(x₂−x) і аналогічні рівності для y,z. Розв'язавши ці рівності, одержимо:</p>\n<div class=\"formula\">x=(nx₁+mx₂)/(m+n)<br>y=(ny₁+my₂)/(m+n)<br>z=(nz₁+mz₂)/(m+n)</div>\n<p>Зокрема, при m=n точка M є серединою AB: M=((x₁+x₂)/2,(y₁+y₂)/2,(z₁+z₂)/2).</p>","proof":""},{"n":5,"title":"Проєкція вектора на вісь, напрямні косинуси","source":"Булдигін: § 9.1, 9.3, с. 75–81","answer":"<p><b>Означення 9.1.</b> Скалярна проєкція вектора a на вісь L — орієнтована довжина проєкції, яку позначають pr<sub>L</sub>a.</p>\n<div class=\"formula\">pr<sub>L</sub>a = |a|cosφ</div>\n<p>Проєкція суми є сумою проєкцій, а проєкція λa дорівнює λ·pr<sub>L</sub>a.</p>\n<p><b>Твердження 9.3.</b> Координати вектора в ортонормованому базисі дорівнюють проєкціям на координатні осі.</p>\n<p>Нехай a=(aₓ,aᵧ,a<sub>z</sub>)≠0, α,β,γ — кути між a та додатними осями. Тоді aₓ=|a|cosα, aᵧ=|a|cosβ, a<sub>z</sub>=|a|cosγ.</p>\n<div class=\"formula\">cos²α + cos²β + cos²γ = 1</div>\n<p><b>Виведення:</b> піднесемо координатні рівності до квадрата, складемо та поділимо на |a|²=aₓ²+aᵧ²+a<sub>z</sub>².</p>","proof":""},{"n":6,"title":"Скалярний добуток векторів і його властивості","source":"Булдигін: § 9.2, с. 77–80","answer":"<p><b>Означення 9.2.</b> Скалярним добутком a та b називають число, яке дорівнює добутку їхніх довжин на косинус кута між ними.</p>\n<div class=\"formula\">(a,b)=|a|·|b|·cosφ = aₓbₓ+aᵧbᵧ+a<sub>z</sub>b<sub>z</sub></div>\n<p><b>Твердження 9.2.</b> Комутативність (a,b)=(b,a); однорідність (λa,μb)=λμ(a,b); дистрибутивність (a+b,c)=(a,c)+(b,c); додатна визначеність (a,a)=|a|²≥0 і (a,a)=0 ⇔ a=0.</p>\n<p><b>Наслідки:</b> |a|=√(a,a); для ненульових a,b, ортогональність a⊥b ⇔ (a,b)=0; cosφ=(a,b)/(|a||b|). Координатна формула випливає з ортонормованості базисних векторів.</p>","proof":""},{"n":7,"title":"Векторний добуток векторів і його властивості","source":"Булдигін: § 10.2–10.3, с. 84–87","answer":"<p><b>Означення 10.1.</b> Вектор [a,b] перпендикулярний до обох векторів a,b, має довжину |a||b|sinφ і для неколінеарних множників утворює з ними праву трійку.</p>\n<div class=\"formula\">[a,b]=(aᵧb<sub>z</sub>−a<sub>z</sub>bᵧ, a<sub>z</sub>bₓ−aₓb<sub>z</sub>, aₓbᵧ−aᵧbₓ)</div>\n<p><b>Твердження 10.1.</b> [a,b]=−[b,a]; [λa,μb]=λμ[a,b]; [a+b,c]=[a,c]+[b,c]; [a,b+c]=[a,b]+[a,c].</p>\n<p><b>Геометричний зміст:</b> |[a,b]| — площа паралелограма, побудованого на a,b; площа відповідного трикутника — |[a,b]|/2.</p>\n<p><b>Критерій:</b> a та b колінеарні ⇔ [a,b]=0.</p>","proof":""},{"n":8,"title":"Мішаний добуток векторів і його властивості","source":"Булдигін: § 10.4–10.5, с. 87–90","answer":"<p><b>Означення 10.2.</b> Мішаним (векторно-скалярним) добутком a,b,c називають число (a,b,c)=([a,b],c).</p>\n<div class=\"formula\">(a,b,c)=det [aₓ aᵧ a<sub>z</sub>; bₓ bᵧ b<sub>z</sub>; cₓ cᵧ c<sub>z</sub>]</div>\n<p><b>Твердження 10.2.</b> Його модуль дорівнює об'єму паралелепіпеда; знак додатний для правої трійки і від'ємний для лівої; нульовий добуток відповідає компланарним векторам.</p>\n<p><b>Твердження 10.3.</b> Циклічне переставляння співмножників зберігає добуток; переставляння двох змінює знак; мішаний добуток лінійний за кожним співмножником. (a,b,c)=([a,b],c)=(a,[b,c]).</p>\n<p>Для тетраедра V=|(a,b,c)|/6, для паралелепіпеда V=|(a,b,c)|.</p>","proof":"<p>Нехай a=(aₓ,aᵧ,a<sub>z</sub>), b=(bₓ,bᵧ,b<sub>z</sub>), c=(cₓ,cᵧ,c<sub>z</sub>) в ортонормованому базисі.</p>\n<p>Векторний добуток:</p>\n<div class=\"formula\">[a,b]=(aᵧb<sub>z</sub>−a<sub>z</sub>bᵧ, a<sub>z</sub>bₓ−aₓb<sub>z</sub>, aₓbᵧ−aᵧbₓ)</div>\n<p>Після скалярного множення на c:</p>\n<div class=\"formula\">(a,b,c)=(aᵧb<sub>z</sub>−a<sub>z</sub>bᵧ)cₓ + (a<sub>z</sub>bₓ−aₓb<sub>z</sub>)cᵧ + (aₓbᵧ−aᵧbₓ)c<sub>z</sub></div>\n<p>Це розклад визначника третього порядку за третім рядком. Тому (a,b,c)=det матриці, рядками якої є координати a,b,c.</p>\n<p>Якщо φ — кут між a,b, θ — між [a,b] і c, то</p>\n<div class=\"formula\">|(a,b,c)|=|a|·|b|sinφ·|c|·|cosθ| = S<sub>осн</sub>·h = V<sub>пар</sub>.</div>\n<p>Звідси V<sub>тетр</sub>=|(a,b,c)|/6. Якщо [a,b]=0 або c перпендикулярний до [a,b], добуток нульовий; це рівносильно компланарності трійки векторів.</p>"},{"n":9,"title":"Площина в просторі. Типи рівнянь","source":"Булдигін: § 15.2, с. 131–134","answer":"<p>Площину через M₀ та два неколінеарні напрямні вектори u,v можна подати векторним рівнянням r=r₀+su+tv, де s,t — параметри.</p>\n<p><b>Параметричні рівняння:</b> x=x₀+suₓ+tvₓ; y=y₀+suᵧ+tvᵧ; z=z₀+su<sub>z</sub>+tv<sub>z</sub>.</p>\n<p>Ненульовий вектор n=(A,B,C), перпендикулярний площині, — <b>нормальний</b>.</p>\n<div class=\"formula\">A(x−x₀)+B(y−y₀)+C(z−z₀)=0</div>\n<p><b>Загальне рівняння:</b> Ax+By+Cz+D=0, A²+B²+C²≠0. <b>У відрізках:</b> x/a+y/b+z/c=1, якщо a,b,c ненульові.</p>\n<p><b>Через три неколінеарні точки</b> M₁,M₂,M₃: змішаний добуток (M₁M,M₁M₂,M₁M₃)=0. Теорема 15.3: будь-яке невироджене лінійне рівняння трьох координат задає площину.</p>","proof":""},{"n":10,"title":"Пряма в просторі. Типи рівнянь","source":"Булдигін: § 15.1, с. 129–130","answer":"<p>Пряма L проходить через M₀(x₀,y₀,z₀) паралельно ненульовому напрямному вектору s=(l,m,n).</p>\n<p><b>Векторне рівняння:</b> r=r₀+ts, t∈R. <b>Параметричні:</b> x=x₀+lt; y=y₀+mt; z=z₀+nt.</p>\n<div class=\"formula\">(x−x₀)/l = (y−y₀)/m = (z−z₀)/n</div>\n<p>Це <b>канонічні рівняння</b> за ненульових знаменників. Якщо деяка компонента напрямного вектора нульова, замість дробу пишуть рівність відповідної координати сталій.</p>\n<p>Пряму можна задати як перетин двох непаралельних площин. Через дві різні точки M₁,M₂ напрямним вектором є M₁M₂. <b>Твердження 15.1:</b> через будь-які дві різні точки проходить одна і тільки одна пряма.</p>","proof":""},{"n":12,"title":"Еліпс та його властивості","source":"Булдигін: § 16.2, с. 150–152","answer":"<p>За Булдигіним <b>еліпс</b> — крива, яка в деякій ПДСК має рівняння x²/a²+y²/b²=1, a≥b&gt;0.</p>\n<div class=\"formula\">c²=a²−b²; ε=c/a; p=b²/a; F₁(−c,0), F₂(c,0)</div>\n<p>a — велика піввісь, b — мала; 2c — фокусна віддаль; ε∈[0,1) — ексцентриситет; O — центр; (±a,0),(0,±b) — вершини. Для ε≠0 директриси x=±a/ε.</p>\n<p><b>Властивості:</b> еліпс лежить у |x|≤a, |y|≤b; симетричний відносно обох осей та початку; r₁=a+εx, r₂=a−εx; <b>фокальна властивість</b> r₁+r₂=2a; <b>фокально-директоріальна</b> r₁/d₁=r₂/d₂=ε. Після відбиття промінь із одного фокуса проходить через інший.</p>\n<p>При a=b — коло, фокуси збігаються в O, ε=0, директриси не визначені.</p>","proof":"<p>Візьмемо фокуси F₁(−c,0), F₂(c,0) та довільну M(x,y), для якої r₁+r₂=2a, a&gt;c&gt;0.</p>\n<p>За формулою відстані: r₁²=(x+c)²+y², r₂²=(x−c)²+y². Віднімемо:</p>\n<div class=\"formula\">(r₁−r₂)(r₁+r₂)=4cx.</div>\n<p>Оскільки r₁+r₂=2a, маємо r₁−r₂=2cx/a; звідси r₁=a+cx/a, r₂=a−cx/a.</p>\n<p>Підставляємо r₂ у квадрат відстані:</p>\n<div class=\"formula\">(a−cx/a)² = (x−c)²+y².</div>\n<p>Розкриваємо дужки:</p>\n<div class=\"formula\">a²−2cx+c²x²/a² = x²−2cx+c²+y².</div>\n<p>Скорочуємо −2cx та перетворюємо:</p>\n<div class=\"formula\">a²−c² = x²(1−c²/a²)+y².</div>\n<p>Позначивши b²=a²−c², дістаємо b²=b²x²/a²+y². Ділимо на b²:</p>\n<div class=\"formula\"><b>x²/a²+y²/b²=1</b>.</div>\n<p><b>Зворотна перевірка:</b> з канонічного рівняння та c²=a²−b² маємо r₁=|a+cx/a|, r₂=|a−cx/a|. Оскільки |x|≤a та c&lt;a, модулі розкриваються додатно, і r₁+r₂=2a. Отже, множини точок збігаються.</p>"},{"n":13,"title":"Гіпербола та її властивості","source":"Булдигін: § 16.4, с. 153–154","answer":"<p><b>Гіпербола</b> — крива з канонічним рівнянням x²/a²−y²/b²=1, a,b&gt;0.</p>\n<div class=\"formula\">c²=a²+b²; ε=c/a&gt;1; y=±(b/a)x</div>\n<p>a — дійсна, b — уявна піввісь; F₁(−c,0), F₂(c,0) — фокуси; (±a,0) — вершини; директриси x=±a/ε; асимптоти y=±(b/a)x.</p>\n<p>Симетрична відносно осей і початку, лежить у |x|≥a, складається з двох віток. <b>Фокальна властивість:</b> |r₁−r₂|=2a&lt;2c. <b>Фокально-директоріальна:</b> r/d=ε&gt;1.</p>","proof":""},{"n":14,"title":"Зв’язок між ексцентриситетом і директрисами еліпса й гіперболи","source":"Булдигін: § 16.5, с. 154–155","answer":"<p>Для еліпса c²=a²−b², ε=c/a&lt;1; для гіперболи c²=a²+b², ε=c/a&gt;1. Фокуси канонічної кривої: (±c,0), а відповідні директриси: x=±a/ε (якщо ε≠0).</p>\n<p><b>Еліпс:</b> r₁=a+εx, r₂=a−εx. Відстані до директрис d₁=x+a/ε, d₂=a/ε−x, отже r₁/d₁=r₂/d₂=ε.</p>\n<p><b>Гіпербола:</b> відповідна формула rᵢ/dᵢ=ε справджується із модулями віддалей та з урахуванням гілки.</p>\n<div class=\"formula\">Фокально-директоріальна властивість: r/d=ε.</div>\n<p>Для кола ε=0 директриси не визначають.</p>","proof":""},{"n":15,"title":"Парабола та її властивості","source":"Булдигін: § 16.3, с. 152–153","answer":"<p><b>Парабола</b> — крива, яка в деякій ПДСК має канонічне рівняння y²=2px, p&gt;0.</p>\n<div class=\"formula\">F(p/2,0); &nbsp; директриса x=−p/2; &nbsp; ε=1</div>\n<p>Вершина O(0,0), фокальна вісь Ox, вісь симетрії Ox, фокальний радіус r=x+p/2; парабола лежить у півплощині x≥0.</p>\n<p><b>Фокальна властивість:</b> кожна точка параболи рівновіддалена від фокуса і директриси. Тому √((x−p/2)²+y²)=|x+p/2|; піднесення до квадрата дає y²=2px.</p>\n<p><b>Оптична властивість:</b> після відбиття промінь із фокуса йде паралельно фокальній осі.</p>","proof":""},{"n":17,"title":"Поняття перестановки. Теореми про перестановки","source":"Кафедральний курс: теорія перестановок та визначників","answer":"<p><b>Перестановка</b> n різних елементів — впорядковане розташування всіх цих елементів. Кількість перестановок дорівнює n!.</p>\n<p><b>Інверсія</b> — пара позицій i&lt;j, в яких елементи стоять у спадному порядку: aᵢ&gt;aⱼ. Перестановка парна, якщо число інверсій парне; непарна — якщо непарне.</p>\n<p><b>Транспозиція</b> — переставляння двох елементів. Основні твердження: кожна транспозиція змінює парність перестановки; будь-яка перестановка утворюється транспозиціями; парність кількості цих транспозицій не залежить від способу розкладання.</p>\n<p>При n≥2 кількість парних і непарних перестановок однакова: по n!/2. Знак перестановки sgn(σ)=(−1)<sup>inv(σ)</sup>.</p>","proof":""},{"n":18,"title":"Визначник n-го порядку. Аналітичний запис","source":"Булдигін: § 2.1, с. 18–20; кафедральна теорія визначників","answer":"<p>Визначником квадратної матриці A=(aᵢⱼ) називають число, яке можна означити індуктивним розкладом за рядком (Булдигін, означення 2.1) або аналітично через перестановки.</p>\n<div class=\"formula\">det A = Σ<sub>σ∈Sₙ</sub> sgn(σ)·a<sub>1σ(1)</sub>⋯a<sub>nσ(n)</sub></div>\n<p>Сума має n! доданків, у кожному вибрано рівно по одному елементу з кожного рядка і стовпця. Знак визначається парністю відповідної перестановки.</p>\n<p>Для матриці 2×2: det[[a,b],[c,d]]=ad−bc. Для матриці 3×3 користуються правилом Саррюса або розкладом за рядком чи стовпцем.</p>","proof":""},{"n":19,"title":"Еквівалентність двох означень визначника. Лема про знак","source":"Кафедральна теорія визначників","answer":"<p>Аналітичний визначник можна визначати, упорядковуючи доданки за <b>рядковими</b> індексами або за <b>стовпцевими</b> індексами.</p>\n<p><b>Лема про знак:</b> добуток елементів a<sub>i₁j₁</sub>⋯a<sub>iₙjₙ</sub>, у якому кожен рядок і стовпець береться рівно один раз, має знак (−1)<sup>inv(i)+inv(j)</sup> — сумарна парність двох перестановок.</p>\n<p><b>Еквівалентність:</b> переставляння співмножників добутку не змінює його значення. Якщо впорядкувати перші індекси, знак залежить від другої перестановки; якщо другі — від першої. Лема забезпечує однаковий загальний знак у двох описах.</p>","proof":""},{"n":20,"title":"Властивості визначників. Розклад за рядком або стовпцем","source":"Булдигін: § 2.2–2.3, с. 20–22","answer":"<p><b>Твердження 2.2.</b> det A=det Aᵀ; лінійність за кожним рядком та стовпцем; спільний множник рядка можна винести; переставляння двох рядків змінює знак; наявність нульового, двох однакових чи пропорційних рядків дає нульовий визначник.</p>\n<p>Додавання до рядка кратного іншого рядка не змінює визначника. Теорема анулювання: сума добутків елементів одного рядка на алгебричні доповнення відповідних елементів <i>іншого</i> рядка дорівнює нулю. det(AB)=det A·det B.</p>\n<p><b>Теорема 2.1.</b> Розкладання за довільним i-м рядком або j-м стовпцем:</p>\n<div class=\"formula\">det A=Σ<sub>k=1…n</sub>a<sub>ik</sub>A<sub>ik</sub> = Σ<sub>k=1…n</sub>a<sub>kj</sub>A<sub>kj</sub>.</div>\n<p>Алгебричне доповнення A<sub>ij</sub>=(−1)<sup>i+j</sup>M<sub>ij</sub>, де M<sub>ij</sub> — доповняльний мінор.</p>","proof":""},{"n":21,"title":"Теорема Крамера","source":"Булдигін: § 4.2, с. 35–36","answer":"<p>Розглянемо систему Ax=b з квадратною матрицею A порядку n. Нехай Δ=det A≠0.</p>\n<p><b>Формули Крамера:</b> xⱼ=Δⱼ/Δ для j=1,…,n, де Δⱼ — визначник, отриманий заміною j-го стовпця A стовпцем вільних членів b.</p>\n<p>За умови Δ≠0 система має єдиний розв'язок. Доведення використовує критерій оборотності матриці, формулу A⁻¹=A*/Δ та розклад визначника за стовпцем.</p>","proof":"<p>Оскільки Δ=det A≠0, матриця A оборотна за теоремою 2.5. Помножуємо систему Ax=b зліва на A⁻¹:</p>\n<div class=\"formula\">A⁻¹Ax=A⁻¹b ⇒ x=A⁻¹b.</div>\n<p>За формулою оберненої матриці A⁻¹=A*/Δ, де A* — транспонована матриця алгебричних доповнень A<sub>ij</sub>. Тоді</p>\n<div class=\"formula\">x<sub>j</sub>=(1/Δ)·Σ<sub>i=1…n</sub> A<sub>ij</sub>b<sub>i</sub>.</div>\n<p>Сума в чисельнику є розкладом визначника матриці, де j-й стовпець замінено на b; це Δⱼ. Тому</p>\n<div class=\"formula\"><b>xⱼ=Δⱼ/Δ, j=1,…,n.</b></div>\n<p>Розв'язок єдиний, оскільки A оборотна. Теорему доведено.</p>"},{"n":22,"title":"Лінійна залежність у Rⁿ. Лема про дві системи","source":"Кафедральна теорія векторних систем; Булдигін: § 3.2","answer":"<p>Система векторів a₁,…,aₘ∈Rⁿ лінійно незалежна, якщо з Σαᵢaᵢ=0 випливає, що всі αᵢ=0; інакше лінійно залежна.</p>\n<p><b>Лема про дві системи.</b> Якщо всі вектори a₁,…,aₘ лінійно виражаються через b₁,…,bₖ і m&gt;k, то система a₁,…,aₘ лінійно залежна. Еквівалентно: якщо перша система незалежна, то m≤k.</p>\n<p><b>Доведення (ідея).</b> Розкладемо кожний aᵢ через bⱼ. Однорідна система із m невідомими коефіцієнтами αᵢ, що відповідає рівності Σαᵢaᵢ=0, зводиться до k лінійних рівнянь. При m&gt;k вона має ненульовий розв'язок, отже aᵢ залежні.</p>\n<p>Застосування: лема дозволяє довести, що всі базиси скінченновимірного простору мають однакову кількість векторів.</p>","proof":""},{"n":23,"title":"Ранг і базис системи векторів. Теореми 1–3","source":"Кафедральна теорія систем векторів","answer":"<p><b>Ранг системи</b> — найбільша кількість лінійно незалежних векторів, які можна вибрати з неї. Базис системи — її максимальна лінійно незалежна підсистема; усі інші вектори виражаються через базис.</p>\n<p><b>Основні твердження про ранг:</b> ранг дорівнює кількості векторів у будь-якому базисі системи; додавання вектора, що виражається через наявні, не змінює рангу; елементарні перетворення системи не змінюють рангу; системи, що лінійно виражаються одна через одну, мають однаковий ранг.</p>\n<p><b>Ідея доведення:</b> кожен вектор системи належить лінійній оболонці базису; за лемою про дві системи незалежна підсистема не може містити більше векторів за будь-яку систему, через яку вона виражається.</p>\n<p><i>Нумерація «теореми 1–3» залежить від кафедрального конспекту; для буквального відтворення потрібно звірити саме свій лекційний текст.</i></p>","proof":""},{"n":24,"title":"Ранг матриці. Теореми про базисний мінор і ранг","source":"Булдигін: § 3.1–3.3, с. 27–31","answer":"<p><b>Означення 3.2.</b> Ранг матриці A — найбільший порядок її невиродженої підматриці (ненульового мінора). Для нульової матриці ранг 0.</p>\n<p><b>Базисний мінор</b> — ненульовий мінор порядку r=rang A.</p>\n<p><b>Теорема про базисний мінор:</b> рядки й стовпці, які його утворюють, незалежні, а інші рядки/стовпці виражаються через відповідні базисні. У Булдигіна це пов'язано з теоремою 3.2 про базисні стовпці та рядки.</p>\n<p><b>Теорема про ранг:</b> кількість незалежних рядків дорівнює кількості незалежних стовпців і рангу за ненульовими мінорами.</p>\n<p>rang A=rang Aᵀ≤min(m,n). Елементарні перетворення рангу не змінюють; для східчастої матриці ранг — число її ненульових рядків. Для квадратної матриці det A≠0 ⇔ rang A=n.</p>","proof":""},{"n":25,"title":"Теорема Кронекера — Капеллі","source":"Булдигін: § 4.3, с. 37–38","answer":"<p><b>Теорема 4.1.</b> Система Ax=b сумісна тоді й лише тоді, коли rang A=rang(A|b), де (A|b) — розширена матриця.</p>\n<p><b>Необхідність:</b> якщо розв'язок існує, b=Σxᵢaᵢ, отже додавання b не збільшує рангу.</p>\n<p><b>Достатність:</b> за рівності рангів b належить лінійній оболонці стовпців A, отже існують xᵢ, для яких Σxᵢaᵢ=b.</p>\n<p><b>Наслідки:</b> при спільному рангу r=n система має один розв'язок; при r&lt;n — безліч; при різних рангах — жодного.</p>","proof":""},{"n":26,"title":"Поняття підпростору","source":"Булдигін: § 13.5–13.6","answer":"<p>Непорожня підмножина U лінійного простору V називається <b>підпростором</b>, якщо сама є лінійним простором відносно тих самих операцій.</p>\n<p><b>Критерій:</b> для всіх u,v∈U та α,β∈R має виконуватися αu+βv∈U. Еквівалентно: замкненість щодо додавання і множення на число.</p>\n<p>Наслідки: 0∈U; для u∈U також −u∈U; кожна лінійна комбінація елементів U належить U.</p>\n<p>Приклади: {0}, V, пряма або площина через початок координат, простір розв'язків Ax=0. Множина розв'язків неоднорідної СЛАР зазвичай не є підпростором.</p>","proof":""},{"n":27,"title":"Однорідні СЛАР. Теорема про ФСР","source":"Булдигін: § 4.4, с. 41–43","answer":"<p><b>Однорідна СЛАР:</b> Ax=0. Завжди сумісна, бо має нульовий розв'язок; її множина розв'язків замкнена щодо додавання і множення на число.</p>\n<p>Нехай A розміру m×n, rang A=r. Якщо r=n, лише нульовий розв'язок. Якщо r&lt;n, існують ненульові розв'язки.</p>\n<p><b>Означення 4.5.</b> Фундаментальна система розв'язків (ФСР) — сукупність n−r лінійно незалежних розв'язків, яка утворює базис простору розв'язків.</p>\n<p><b>Теорема 4.4:</b> будь-який розв'язок однорідної системи є лінійною комбінацією векторів ФСР:</p>\n<div class=\"formula\">x=C₁e₁+⋯+C<sub>n−r</sub>e<sub>n−r</sub>.</div>","proof":""},{"n":28,"title":"Теорема про розв’язки неоднорідної СЛАР","source":"Булдигін: § 4.5, с. 43–44","answer":"<p>Неоднорідною називають СЛАР Ax=b, де b≠0.</p>\n<p><b>Теорема 4.5:</b> загальний розв'язок неоднорідної СЛАР дорівнює сумі її частинного розв'язку x₀ і загального розв'язку відповідної однорідної СЛАР Ay=0:</p>\n<div class=\"formula\">x=x₀+C₁e₁+⋯+C<sub>n−r</sub>e<sub>n−r</sub>.</div>\n<p><b>Доведення:</b> якщо Ax₀=b та Ay=0, то A(x₀+y)=b; навпаки, для будь-якого розв'язку Ax=b маємо A(x−x₀)=0. Отже, всі розв'язки й лише вони мають описаний вигляд.</p>","proof":""},{"n":29,"title":"Добуток матриць. Властивості. Визначник добутку","source":"Булдигін: § 1.5, с. 14–17; § 2.3","answer":"<p><b>Означення 1.6.</b> Добуток A (m×l) та B (l×n) — матриця C=AB розміру m×n з елементами cᵢⱼ=Σ<sub>k=1…l</sub>aᵢₖbₖⱼ.</p>\n<p><b>Властивості:</b> (AB)C=A(BC); A(B+C)=AB+AC; (A+B)C=AC+BC; (λA)B=A(λB)=λAB; AE=EA=A. Загалом AB≠BA. Транспонування: (AB)ᵀ=BᵀAᵀ.</p>\n<p><b>Теорема про добуток визначників:</b> для квадратних матриць одного порядку det(AB)=det A·det B.</p>\n<p><b>Наслідки:</b> для оборотних A,B маємо (AB)⁻¹=B⁻¹A⁻¹; det A⁻¹=1/det A.</p>","proof":""},{"n":30,"title":"Одинична та обернена матриці. Теорема","source":"Булдигін: § 1.5, § 2.5, с. 17, 24–25","answer":"<p><b>Одинична матриця</b> Eₙ — матриця з одиницями на головній діагоналі й нулями поза нею.</p>\n<p><b>Означення 1.8.</b> Обернена до A матриця A⁻¹ задовольняє A⁻¹A=AA⁻¹=Eₙ. Квадратну матрицю називають невиродженою, якщо det A≠0.</p>\n<p><b>Теорема 2.5 (критерій оборотності):</b> матриця оборотна тоді й лише тоді, коли вона невироджена.</p>\n<div class=\"formula\">A⁻¹ = A*/det A, &nbsp; det A≠0.</div>\n<p>Тут A* — приєднана матриця, транспонована до матриці алгебричних доповнень. Обернена матриця, якщо існує, єдина; (AB)⁻¹=B⁻¹A⁻¹; (Aᵀ)⁻¹=(A⁻¹)ᵀ.</p>","proof":""},{"n":31,"title":"Комплексні числа. Дії та тригонометрична форма","source":"Булдигін: § 11.1–11.5, с. 92–100","answer":"<p>Комплексне число z — впорядкована пара дійсних чисел (x,y), записувана алгебрично z=x+iy, i²=−1. x=Re z, y=Im z.</p>\n<p><b>Дії:</b> (x+iy)+(u+iv)=(x+u)+i(y+v); (x+iy)(u+iv)=(xu−yv)+i(xv+yu). Спряжене z̄=x−iy; модуль |z|=√(x²+y²); 1/z=z̄/|z|² при z≠0.</p>\n<p><b>Означення 11.7:</b> тригонометрична форма ненульового числа:</p>\n<div class=\"formula\">z=ρ(cosφ+i sinφ), ρ=|z|&gt;0.</div>\n<p>Аргумент φ визначений із точністю до 2πk, k∈Z. cosφ=x/ρ, sinφ=y/ρ. На комплексній площині z відповідає точці (x,y).</p>","proof":""},{"n":32,"title":"Комплексні числа в тригонометричній формі. Муавр. Корені","source":"Булдигін: § 11.5, с. 97–102","answer":"<p>Для z₁=ρ₁(cosφ₁+i sinφ₁), z₂=ρ₂(cosφ₂+i sinφ₂):</p>\n<p><b>Добуток:</b> модулі множаться, аргументи додаються. <b>Частка:</b> модулі діляться, аргументи віднімаються (z₂≠0).</p>\n<p><b>Формула Муавра:</b> [ρ(cosφ+i sinφ)]ⁿ=ρⁿ(cos nφ+i sin nφ) для цілого n, де вираз означений.</p>\n<p>Для z=ρ(cosφ+i sinφ), ρ&gt;0, всі n коренів:</p>\n<div class=\"formula\">w<sub>k</sub>=ρ<sup>1/n</sup>[cos((φ+2πk)/n)+i sin((φ+2πk)/n)], k=0,…,n−1.</div>\n<p>Корені з одиниці: ε<sub>k</sub>=cos(2πk/n)+i sin(2πk/n). Вони утворюють правильний n-кутник на одиничному колі. Для z=0 єдиний корінь — 0.</p>","proof":""}];
 const ORDER=[22,8,12,21,2,17,5,25,13,6,29,1,30,14,3,26,20,15,4,19,7,27,24,10,31,9,18,23,28,32];
+
+const QUIZ = [
+  {"n":1,"question":"Чому дорівнює 2a − b, якщо a = (1; −2; 3), b = (−1; 0; 2)?","options":["(1; −4; 4)","(3; −4; 4)","(3; 4; 8)","(0; −2; 1)"],"correct":1,"explanation":"Подвоюємо координати a: (2; −4; 6). Після віднімання b отримуємо (3; −4; 4)."},
+  {"n":2,"question":"Що гарантує теорема про розклад вектора за базисом?","options":["Базисні вектори мають одиничну довжину.","Кожен вектор має щонайменше два розклади.","Координати вектора однакові в усіх базисах.","Кожен вектор має єдиний розклад за векторами цього базису."],"correct":3,"explanation":"Базис породжує простір, тому розклад існує. Лінійна незалежність базисних векторів забезпечує його єдиність."},
+  {"n":3,"question":"За якої умови три вектори у тривимірному просторі лінійно залежні?","options":["Вони компланарні.","Вони попарно ортогональні та ненульові.","Вони мають однакові довжини.","Один із них має від’ємну координату."],"correct":0,"explanation":"Три вектори лінійно залежні тоді й лише тоді, коли вони лежать в одній площині після перенесення до спільного початку."},
+  {"n":4,"question":"Точка M ділить відрізок AB так, що AM : MB = 2 : 1. Знайди M, якщо A = (0; 0), B = (6; 3).","options":["(2; 1)","(3; 1,5)","(4; 2)","(6; 3)"],"correct":2,"explanation":"AM становить 2/3 довжини AB, тому M = A + (2/3)(B − A) = (4; 2)."},
+  {"n":5,"question":"Чому дорівнює сума квадратів напрямних косинусів ненульового вектора у просторі?","options":["0","1","2","3"],"correct":1,"explanation":"Напрямні косинуси є координатами одиничного вектора цього напряму. Сума квадратів його координат дорівнює квадрату довжини, тобто 1."},
+  {"n":6,"question":"Вектори a і b мають довжини 2 і 3 та утворюють кут 60°. Чому дорівнює a · b?","options":["0","6","3√3","3"],"correct":3,"explanation":"Скалярний добуток дорівнює |a||b| cos 60° = 2 · 3 · 1/2 = 3."},
+  {"n":7,"question":"Яке співвідношення виконується для векторного добутку?","options":["b × a = −(a × b)","b × a = a × b","a × a = a","|a × b| = |a||b| cos φ"],"correct":0,"explanation":"Перестановка множників змінює напрям векторного добутку на протилежний, тож добуток змінює знак."},
+  {"n":8,"question":"Як знайти об’єм паралелепіпеда, побудованого на векторах a, b, c?","options":["(a × b) · c незалежно від знака","|a × b| + |c|","|(a × b) · c|","|a · b| · |c|"],"correct":2,"explanation":"Мішаний добуток дає орієнтований об’єм. Його модуль дорівнює геометричному об’єму."},
+  {"n":9,"question":"Який вектор є нормаллю площини 2x − y + 3z − 4 = 0?","options":["(−1; 3; −4)","(2; −1; 3)","(2; 1; 3)","(2; −1; −4)"],"correct":1,"explanation":"У загальному рівнянні Ax + By + Cz + D = 0 нормаль має координати (A; B; C)."},
+  {"n":10,"question":"Який вектор задає напрям прямої x = 1 + 2t, y = −3 + t, z = 4 − 5t?","options":["(1; −3; 4)","(2; −3; −5)","(2; 1; 5)","(2; 1; −5)"],"correct":3,"explanation":"Напрямний вектор складається з коефіцієнтів при параметрі t."},
+  {"n":12,"question":"Еліпс має фокуси (−3; 0) і (3; 0), а сума відстаней до них дорівнює 10. Яке його канонічне рівняння?","options":["x²/25 + y²/16 = 1","x²/25 + y²/9 = 1","x²/16 + y²/25 = 1","x²/100 + y²/91 = 1"],"correct":0,"explanation":"Тут 2a = 10, c = 3, тому a² = 25, b² = a² − c² = 16. Фокуси лежать на осі Ox."},
+  {"n":13,"question":"Яка величина стала для кожної точки M гіперболи з фокусами F₁ і F₂?","options":["MF₁ + MF₂","MF₁ · MF₂","|MF₁ − MF₂|","MF₁ / MF₂"],"correct":2,"explanation":"За означенням гіперболи модуль різниці відстаней від M до фокусів дорівнює сталій 2a."},
+  {"n":14,"question":"Як виразити ексцентриситет e коніки через відстані від її точки M до відповідних фокуса F і директриси d?","options":["e = dist(M, d) / MF","e = MF / dist(M, d)","e = MF + dist(M, d)","e = MF − dist(M, d)"],"correct":1,"explanation":"Ексцентриситет є відношенням відстані до фокуса до відстані до відповідної директриси."},
+  {"n":15,"question":"Яку умову задовольняє кожна точка M параболи з фокусом F і директрисою d?","options":["MF = 2 dist(M, d)","MF · dist(M, d) = 1","MF + dist(M, d) є сталою","MF = dist(M, d)"],"correct":3,"explanation":"Парабола є множиною точок, рівновіддалених від фокуса й директриси."},
+  {"n":17,"question":"Скільки інверсій має перестановка (3, 1, 2)?","options":["2","0","1","3"],"correct":0,"explanation":"Інверсіями є пари (3, 1) та (3, 2). Пара (1, 2) інверсії не утворює."},
+  {"n":18,"question":"Який знак має доданок a₁₂a₂₁a₃₃ у формулі для визначника матриці 3 × 3?","options":["Плюс","Визначається значеннями aᵢⱼ","Мінус","Доданок відсутній"],"correct":2,"explanation":"Послідовність стовпців (2, 1, 3) має одну інверсію, тому її знак дорівнює −1."},
+  {"n":19,"question":"Як співвідносяться знаки перестановки σ та оберненої до неї σ⁻¹?","options":["Вони завжди протилежні.","Вони однакові.","Знаки збігаються лише для тотожної перестановки.","Обернена перестановка завжди парна."],"correct":1,"explanation":"У σ і σ⁻¹ однакове число інверсій: інверсії i < j, σ(i) > σ(j) відповідає інверсія σ(j) < σ(i) в оберненій перестановці."},
+  {"n":20,"question":"Чому дорівнює алгебраїчне доповнення A₂₃, якщо відповідний мінор M₂₃ = 7?","options":["7","0","35","−7"],"correct":3,"explanation":"A₂₃ = (−1)^(2 + 3) M₂₃ = −7."},
+  {"n":21,"question":"У системі з визначником Δ = 4 визначник Δ₂, отриманий заміною другого стовпця правими частинами, дорівнює −6. Знайди x₂.","options":["−3/2","−2/3","3/2","−10"],"correct":0,"explanation":"За формулою Крамера x₂ = Δ₂/Δ = −6/4 = −3/2."},
+  {"n":22,"question":"Нехай m лінійно незалежних векторів виражаються через систему з n векторів. Яку нерівність дає лема про дві системи?","options":["m > n","m ≥ n","m ≤ n","m = n + 1"],"correct":2,"explanation":"Кількість лінійно незалежних векторів не перевищує кількості векторів системи, через яку вони виражаються."},
+  {"n":23,"question":"Чому дорівнює ранг системи з п’яти векторів, якщо три з них утворюють базис цієї системи?","options":["2","3","5","8"],"correct":1,"explanation":"Ранг системи дорівнює числу векторів у її базисі, тобто 3."},
+  {"n":24,"question":"Матриця має ненульовий мінор порядку 2, а всі мінори порядку 3 дорівнюють нулю. Який її ранг?","options":["0","1","3","2"],"correct":3,"explanation":"Ранг є найбільшим порядком ненульового мінора. Якщо всі мінори порядку 3 нульові, то мінори вищих порядків теж нульові."},
+  {"n":25,"question":"Нехай ранг матриці коефіцієнтів дорівнює 2, а ранг розширеної матриці дорівнює 3. Що можна сказати про систему?","options":["Розв’язків немає.","Існує єдиний розв’язок.","Існує нескінченно багато розв’язків.","Сумісність залежить від числа невідомих."],"correct":0,"explanation":"За теоремою Кронекера — Капеллі система сумісна тоді й лише тоді, коли ці два ранги збігаються."},
+  {"n":26,"question":"Яка з множин у ℝ² є лінійним підпростором?","options":["{(x; y) : x + y = 1}","{(x; y) : xy = 0}","{(x; y) : x − 2y = 0}","{(x; y) : x ≥ 0}"],"correct":2,"explanation":"Рівняння x − 2y = 0 задає пряму через початок координат. Вона замкнена відносно додавання й множення на скаляр."},
+  {"n":27,"question":"Однорідна система має 5 невідомих і ранг 3. Скільки векторів у її фундаментальній системі розв’язків?","options":["1","2","3","5"],"correct":1,"explanation":"Вимірність простору розв’язків однорідної системи дорівнює n − r = 5 − 3 = 2."},
+  {"n":28,"question":"Як отримати всі розв’язки сумісної системи Ax = b, знаючи один її розв’язок x₀?","options":["Помножити x₀ на всі можливі скаляри.","Додати до x₀ усі вектори простору невідомих.","Взяти лише розв’язки Ax = 0.","Додати до x₀ кожен розв’язок Ax = 0."],"correct":3,"explanation":"Різниця двох розв’язків Ax = b задовольняє Ax = 0, а додавання такого вектора до x₀ зберігає праву частину b."},
+  {"n":29,"question":"Для квадратних матриць A і B одного розміру det A = −2, det B = 3. Чому дорівнює det(AB)?","options":["−6","1","−1","6"],"correct":0,"explanation":"Визначник добутку дорівнює добутку визначників: det(AB) = det A · det B = −6."},
+  {"n":30,"question":"Коли квадратна матриця A має обернену?","options":["Коли всі її елементи ненульові.","Коли вона симетрична.","Коли det A ≠ 0.","Коли вона має принаймні один ненульовий елемент."],"correct":2,"explanation":"Квадратна матриця оборотна тоді й лише тоді, коли її визначник ненульовий."},
+  {"n":31,"question":"Чому дорівнює (1 + 2i)(3 − i)?","options":["1 + 5i","5 + 5i","5 + 7i","1 + 7i"],"correct":1,"explanation":"Розкриваємо дужки: 3 − i + 6i − 2i² = 5 + 5i, бо i² = −1."},
+  {"n":32,"question":"Який із наведених кутів є аргументом одного з кубічних коренів числа 8?","options":["π/2","π","π/3","2π/3"],"correct":3,"explanation":"Аргументи кубічних коренів з 8 мають вигляд (0 + 2πk)/3, де k = 0, 1, 2. Для k = 1 отримуємо 2π/3."}
+];
 
 const STORAGE='ag_study_v3';
 const $=id=>document.getElementById(id);
@@ -22,12 +94,27 @@ function loadState(){
 const prior=loadState();
 let marks=prior.marks||{},mode=['oral','review','proof','repeat'].includes(prior.mode)?prior.mode:'oral';
 let pos=Number.isInteger(prior.pos)?prior.pos:0,open=false;
+let quizActive = prior.quizActive === true;
+let quiz = prior.quiz?.optionOrder?.length === QUIZ.length ? prior.quiz : newQuiz();
 // Any obsolete marks for removed question 11 do not count towards progress.
 delete marks[11];delete marks[16];
-function save(){try{localStorage.setItem(STORAGE,JSON.stringify({mode,pos,marks}))}catch(e){}}
+function save(){try{localStorage.setItem(STORAGE,JSON.stringify({mode,pos,marks,quizActive,quiz}))}catch(e){}}
 function notLearned(){return ORDER.filter(n=>marks[n]!=='known')}
 function sequence(){return mode==='oral'?ORDER:mode==='proof'?[8,12,21]:mode==='repeat'?notLearned():ITEMS.map(x=>x.n)}
-function setMode(m){mode=m;pos=0;open=false;save();render()}
+function setMode(m){
+  if (m === 'quiz'){
+    quizActive = true;
+  } else {
+    if (!quizActive || mode !== m){
+      mode = m;
+      pos = 0;
+      open = false;
+    }
+    quizActive = false;
+  }
+  save();
+  render();
+}
 function navigate(d){
   const seq=sequence();if(seq.length===0){render();return;}
   if(mode==='oral' || mode==='repeat') pos=Math.max(0,Math.min(seq.length,pos+d));
@@ -51,6 +138,8 @@ function mark(v){
 function reset(){
   if(!confirm('Очистити ВСІ оцінки та розпочати навчання заново?'))return;
   marks={};mode='oral';pos=0;open=false;
+  quizActive = false;
+  quiz = newQuiz();
   try{localStorage.removeItem(STORAGE);localStorage.removeItem('ag_marks_v2')}catch(e){}
   save();render();
 }
@@ -69,15 +158,129 @@ function renderCompleted(){
   `<button class="outline" onclick="setMode('review')">Переглянути теорію</button>`+
   `<button class="needs" onclick="reset()">Скинути весь прогрес</button></div>`;
 }
+
+function newQuiz(){
+  const optionOrder = QUIZ.map(({options}) => {
+    const order = options.map((_, index) => index);
+    for (let index = order.length - 1; index > 0; index--) {
+      const other = Math.floor(Math.random() * (index + 1));
+      [order[index], order[other]] = [order[other], order[index]];
+    }
+    return order;
+  });
+  return {index: 0, answers: [], optionOrder};
+}
+
+function selectQuizAnswer(index){
+  const question = QUIZ[quiz.index];
+  if (!question || quiz.answers[quiz.index] !== undefined || !Object.hasOwn(question.options, index)) return;
+  quiz.answers.push(index);
+  save();
+  renderQuiz();
+  $('quizNext').focus();
+}
+
+function nextQuizQuestion(){
+  if (quiz.answers[quiz.index] === undefined) return;
+  quiz.index++;
+  save();
+  renderQuiz();
+  $(quiz.index === QUIZ.length ? 'quizSummaryTitle' : 'quizQuestion').focus();
+}
+
+function restartQuiz(){
+  if (quiz.index < QUIZ.length && quiz.answers.length && !confirm('Розпочати тест заново?')) return;
+  quiz = newQuiz();
+  save();
+  renderQuiz();
+  $('quizQuestion').focus();
+}
+
+function renderQuiz(){
+  document.title = 'АГ · Тести';
+  const question = QUIZ[quiz.index];
+  $('quizRound').classList.toggle('hidden', !question);
+  $('quizSummary').classList.toggle('hidden', Boolean(question));
+
+  if (!question) {
+    const correct = QUIZ.filter((item, index) => quiz.answers[index] === item.correct).length;
+    $('quizCorrect').textContent = correct + ' / ' + QUIZ.length;
+    $('quizIncorrect').textContent = QUIZ.length - correct;
+    return;
+  }
+
+  const selected = quiz.answers[quiz.index];
+  const answered = selected !== undefined;
+  $('quizTopic').textContent = 'Тема № ' + question.n;
+  $('quizPosition').textContent = (quiz.index + 1) + ' / ' + QUIZ.length;
+  $('quizProgress').style.width = (quiz.answers.length / QUIZ.length * 100) + '%';
+  $('quizQuestion').textContent = question.question;
+
+  const buttons = quiz.optionOrder[quiz.index].map((index, position) => {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'quiz-option';
+    button.disabled = answered;
+
+    const letter = document.createElement('span');
+    letter.className = 'quiz-letter';
+    letter.textContent = 'АБВГ'[position];
+    const option = document.createElement('span');
+    option.className = 'quiz-option-text';
+    option.textContent = question.options[index];
+    button.append(letter, option);
+    button.addEventListener('click', () => selectQuizAnswer(index));
+
+    if (answered && (index === selected || index === question.correct)) {
+      const correct = index === question.correct;
+      button.classList.add(correct ? 'positive' : 'needs');
+      const result = document.createElement('span');
+      result.className = 'quiz-option-result';
+      result.textContent = correct ? 'Правильна відповідь' : 'Твоя відповідь';
+      option.append(result);
+    }
+    return button;
+  });
+  $('quizOptions').replaceChildren(...buttons);
+
+  const feedback = $('quizFeedback');
+  feedback.replaceChildren();
+  if (answered) {
+    const correct = selected === question.correct;
+    const box = document.createElement('div');
+    box.className = 'quiz-feedback ' + (correct ? 'positive' : 'needs');
+    const heading = document.createElement('strong');
+    heading.textContent = correct ? 'Правильно!' : 'Неправильно';
+    const explanation = document.createElement('p');
+    explanation.textContent = question.explanation;
+    box.append(heading, explanation);
+    feedback.append(box);
+  }
+  $('quizRestart').classList.toggle('hidden', !quiz.answers.length);
+  $('quizNext').classList.toggle('hidden', !answered);
+  $('quizNext').textContent = quiz.index === QUIZ.length - 1 ? 'Показати результат' : 'Далі →';
+}
+
 function render(){
-  const seq=sequence(),unfinished=notLearned();
+  const unfinished=notLearned();
   $('known').textContent=ORDER.length-unfinished.length;
   $('repeat').textContent=unfinished.length;
   $('repeatCount').textContent=`(${unfinished.length})`;
   $('tabs').querySelectorAll('button').forEach(b=>{
-    b.classList.toggle('active',b.dataset.mode===mode);
-    b.setAttribute('aria-pressed',String(b.dataset.mode===mode));
+    const active = b.dataset.mode === (quizActive ? 'quiz' : mode);
+    b.classList.toggle('active', active);
+    b.setAttribute('aria-pressed', String(active));
   });
+  $('quizArea').classList.toggle('hidden', !quizActive);
+  $('studyStatus').classList.toggle('hidden', quizActive);
+  $('studyReset').classList.toggle('hidden', quizActive);
+  if (quizActive){
+    $('studyArea').classList.add('hidden');
+    $('completed').classList.add('hidden');
+    renderQuiz();
+    return;
+  }
+  const seq=sequence();
   const done=seq.length===0||((mode==='oral'||mode==='repeat')&&pos>=seq.length);
   if(done){renderCompleted();document.title='АГ · Підсумок тесту';return;}
   $('studyArea').classList.remove('hidden');$('completed').classList.add('hidden');
@@ -101,7 +304,7 @@ function render(){
   $('restart').classList.toggle('hidden',false);
 }
 window.addEventListener('keydown',e=>{
-  if(e.target.tagName==='SELECT'||e.target.tagName==='INPUT'||e.altKey||e.ctrlKey||e.metaKey)return;
+  if(quizActive||e.target.tagName==='SELECT'||e.target.tagName==='INPUT'||e.altKey||e.ctrlKey||e.metaKey)return;
   if(e.key==='ArrowRight')navigate(1);
   if(e.key==='ArrowLeft')navigate(-1);
   if(e.key===' '&&(mode==='oral'||mode==='repeat')){e.preventDefault();reveal()}
